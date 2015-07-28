@@ -11,7 +11,7 @@ class News extends CI_Controller {
         {       
                 $data['news'] = $this->news_model->get_news();
                 $data['title'] = 'My News';
-
+                $this->load->helper('url');
                 $this->load->view('templates/header', $data);
                 $this->load->view('news/index', $data);
                 $this->load->view('templates/footer');
@@ -27,14 +27,15 @@ class News extends CI_Controller {
                 }
 
                 $data['title'] = $data['news_item']['title'];
-
+                $this->load->helper('url');
                 $this->load->view('templates/header', $data);
                 $this->load->view('news/view', $data);
                 $this->load->view('templates/footer');
         }
 
         public function create()
-{
+{           
+            $this->load->helper('url');
             $this->load->helper('form');
             $this->load->library('form_validation');
 
